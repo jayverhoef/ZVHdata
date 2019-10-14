@@ -1,0 +1,13 @@
+Package: slm
+Maintainer: Jay Ver Hoef <jay.verhoef@noaa.gov>
+License: GPL-2
+Title: spatial linear mixed models
+Type: Package
+LazyLoad: yes
+Author: Jay Ver Hoef
+Description: estimation and prediction for spatial linear mixed models
+Version: 1.0
+Date: 2019-06-17
+RoxygenNote: 6.1.1
+Depends: R (>= 3.4), sp 
+Imports: rgdal, methods, rgeos, viridis
