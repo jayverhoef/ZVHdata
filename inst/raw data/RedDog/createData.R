@@ -1,7 +1,7 @@
 library(slm)
 
 path1 = '/media/jay/Hitachi2GB/00NMML/ActiveRPack/slm_package'
-path1 = '/media/jay/ExtraDrive1/transfer/slm_package'
+path1 = '/media/jay/data/desktop_data/2019_packages/slm_package'
 path2 = '/slm/inst/raw data/wetSulfateDep/so4.txt'
 path2 = '/slm/inst/raw data/RedDog/reddog.csv'
 d1 = read.table(paste0(path1,path2), sep = ',', header = TRUE)
@@ -36,6 +36,16 @@ CAKR = sp::spTransform(CAKR, sp::CRS("+init=epsg:3338"))
 # reproject the observations
 rdobs = sp::spTransform(d2, sp::CRS("+init=epsg:3338"))
 
+# Road Map
+path2 = '/slm/inst/raw data/RedDog/'
+ShapeFile = 'DMTS_CL_Only'
+shape.path.filename <- paste0(path1, path2, ShapeFile,'.shp')
+haulRoad <- rgdal::readOGR(shape.path.filename)
+# reproject into lat/long decimal degrees
+haulRoad = sp::spTransform(haulRoad, sp::CRS("+proj=longlat +datum=WGS84"))
+# reproject into Alaska Albers equal area conic
+haulRoad = sp::spTransform(haulRoad, sp::CRS("+init=epsg:3338"))
+
 ShapeFile = 'Stratum1_fin'
 shape.path.filename <- paste0(path1, path2, ShapeFile,'.shp')
 stratum1 <- rgdal::readOGR(shape.path.filename)
@@ -66,6 +76,7 @@ rdpreds = rbind(stratum1, stratum2, stratum3, stratum4, stratum5)
 path3 = '/slm/data/'
 save(Alaska, file = paste0(path1, path3, 'Alaska.rda'))
 save(CAKR, file = paste0(path1, path3, 'CAKR.rda'))
+save(haulRoad, file = paste0(path1, path3, 'haulRoad.rda'))
 save(rdobs, file = paste0(path1, path3, 'rdobs.rda'))
 save(rdpreds, file = paste0(path1, path3, 'rdpreds.rda'))
 
@@ -85,6 +96,8 @@ par(mar = c(0,0,2,0))
 plot(CAKR, lwd = 2)
 plot(rdobs[rdobs$year == 2001,], add = TRUE, pch = 19, cex = .8, col = 'darkorchid2')
 plot(rdobs[rdobs$year == 2006,], add = TRUE, pch = 19, cex = .8, col = 'darkolivegreen3')
+plot(haulRoad, add = TRUE, lwd = 2, col = 'red2')
+
 text(-450000, 2010000, 'B', cex = 4)
 legend(-390000, 1990000, legend = c('2001', '2006'),
   pch = c(19, 19), col = c('darkorchid2','darkolivegreen3'),
@@ -93,6 +106,7 @@ legend(-390000, 1990000, legend = c('2001', '2006'),
 pal = viridis(7)
 par(mar = c(0,0,2,0))
 plot(CAKR, lwd = 2)
+plot(haulRoad, add = TRUE, lwd = 2, col = 'red2')
 plot(rdpreds[rdpreds$strat==1,], add = TRUE, pch = 19, cex = .2, col=pal[1])
 plot(rdpreds[rdpreds$strat==2,], add = TRUE, pch = 19, cex = .2, col=pal[2])
 plot(rdpreds[rdpreds$strat==3,], add = TRUE, pch = 19, cex = .2, col=pal[3])
