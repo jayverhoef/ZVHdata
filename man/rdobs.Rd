@@ -16,6 +16,7 @@
   \item{Cd}{Cadmium concentration in moss tissue, in mg/kg}
   \item{Pb}{Lead concentration in moss tissue, in mg/kg}
   \item{Zn}{Zinc concentration in moss tissue, in mg/kg}
+  \item{year}{year of data collection, either 2001 or 2006}
 }}
 \usage{
 data(rdobs)
