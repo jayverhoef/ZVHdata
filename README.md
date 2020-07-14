@@ -1,2 +1,1 @@
-# slm
-spatial linear models
+# ZVHdata
