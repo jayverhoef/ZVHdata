@@ -12,7 +12,7 @@
 #### <sup>a</sup>Department of Statistics and Actuarial Science, University of Iowa
 #### <sup>b</sup>NOAA Fisheries (NMFS) Alaska Fisheries Science Center, and 
 
-As a scientific work, and in keeping with common scientific practicies, we kindly request that you cite our research project and applicable publications if you use our work(s) or data in your publications or presentations. Additionally, we strongly encourage and welcome collaboration to promote use of these data in the proper context and scope.  The publication is currently in revision:
+As a scientific work, and in keeping with common scientific practicies, we kindly request that you cite our research project and applicable publications if you use our work(s) or data in your publications or presentations. Additionally, we strongly encourage and welcome collaboration to promote use of these data in the proper context and scope.  The book is currently in development:
 
 #### Zimmerman, Dale L. and Ver Hoef, Jay. M. Spatial Linear Models for Environmental Data.  *Chapman & Hall/CRC Press*.
 
