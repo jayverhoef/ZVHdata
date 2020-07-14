@@ -35,7 +35,7 @@ install_github("jayverhoef/ZVHdata")
 Examine the Example Data
 ------------------------
 
-There are 4 main data sets that are used throughout the book. Here is how to access each of them.
+There are 4 main data sets that are used throughout the book. Here is how to find out more about each of them.
 
 ### sealPolys
 
@@ -45,7 +45,7 @@ This is a set of areal data with seal trends in polygons, and there some polygon
 library(ZVHdata)
 help(sealPolys)
 ```
-in R. Use the examples in the help file. 
+in R. Use the examples in the help file to access the data. 
 
 ### caribouDF
 
@@ -55,7 +55,7 @@ This is a set of areal data with plant biomass in a grid of plots.  There is a 2
 library(ZVHdata)
 help(caribouDF)
 ```
-in R. Use the examples in the help file. 
+in R. Use the examples in the help file to access the data. 
 
 -------------
 ##### Disclaimer
