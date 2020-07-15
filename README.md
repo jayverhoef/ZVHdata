@@ -10,7 +10,7 @@
 #### Dale. L. Zimmerman<sup>a</sup> and Jay M. Ver Hoef<sup>b</sup> and 
 
 #### <sup>a</sup>Department of Statistics and Actuarial Science, University of Iowa
-#### <sup>b</sup>NOAA Fisheries (NMFS) Alaska Fisheries Science Center, and 
+#### <sup>b</sup>Alaska Fisheries Science Center, NOAA Fisheries (NMFS) 
 
 As a scientific work, and in keeping with common scientific practicies, we kindly request that you cite our research project and applicable publications if you use our work(s) or data in your publications or presentations. Additionally, we strongly encourage and welcome collaboration to promote use of these data in the proper context and scope.  The book is currently in development:
 
