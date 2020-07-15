@@ -59,25 +59,25 @@ in R. Use the examples in the help file to access the data.
 
 ### SO4obs and SO4preds
 
-This is a set of point-referenced data with SO4 air quality measurements throughout the United States.  The data are in two files, one with observed data, and the other with locations to be used for predictions. The help file for this example data set can found by typing
+This is a set of point-referenced data with SO4 air quality measurements throughout the United States.  The data are in two files, one with observed data, and the other with locations to be used for predictions. The help files for these data sets can found by typing
 
 ```
 library(ZVHdata)
 help(SO4obs)
 help(SO4preds)
 ```
-in R. Use the examples in the help file to access the data. 
+in R. Use the examples in the help files to access the data. 
 
 ### rdobs and rdpreds
 
-This is a set point-referenced data with concentrations of 3 different heavy metals in mosses from Cape Krusenstern National Monument, where a road from the Reddog mine traverses the Monument.  Data were collected in two years, 2001 and 2006, and mitigation for dust from road improved between the years. Covariates include year, distance from road, and side of road.   The help file for this example data set can found by typing
+This is a set point-referenced data with concentrations of 3 different heavy metals in mosses from Cape Krusenstern National Monument, where a road from the Reddog mine traverses the Monument.  Data were collected in two years, 2001 and 2006, and mitigation for dust from road improved between the years. Covariates include year, distance from road, and side of road.   The help files for these data sets can found by typing
 
 ```
 library(ZVHdata)
 help(rdobs)
 help(rdpreds)
 ```
-in R. Use the examples in the help file to access the data. 
+in R. Use the examples in the help files to access the data. 
 
 
 -------------
