@@ -157,3 +157,42 @@
 #' boxplot(Estimate ~ as.factor(stockid), data = sealPolys@data)
 #' summary(lm(Estimate ~ as.factor(stockid), data = sealPolys@data))
 "sealPolys"
+
+#' Data on SO4 atmospheric deposition throughout the conterminous USA
+#'
+#' Data on SO4 atmospheric deposition throughout the conterminous USA with object type \code{SpatialPointsDataFrame} from \code{sp} package.
+#'
+#' @docType data
+#' @usage data(SO4obs)
+#' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  The @data is a dataframe with 197 observations of a single variable.
+#' \describe{
+#'   \item{SO4}{Total wet deposition amounts of SO_4, in grams per square meter in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
+#' }
+#' @references 
+#' (\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
+#' @examples
+#' data(SO4obs)
+#' names(SO4obs@data)
+#' summary(SO4obs)
+#' library(sp)
+#' data(USboundary)
+#' plot(USboundary)
+#' plot(SO4obs, add = TRUE, pch = 19)
+"SO4obs"
+
+#' Prediction sites for SO4 atmospheric deposition throughout the conterminous USA
+#'
+#' Prediction sites for SO4 atmospheric deposition throughout the conterminous USA with object type \code{SpatialPoints} from \code{sp} package.
+#'
+#' @docType data
+#' @usage data(SO4pred)
+#' @format A \code{SpatialPoints} object with slots  @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070. There are 2721 locations in the @coords slot for prediction.
+#' @examples
+#' data(SO4pred)
+#' str(SO4pred)
+#' summary(SO4pred)
+#' library(sp)
+#' data(USboundary)
+#' plot(USboundary)
+#' plot(SO4pred, add = TRUE, pch = 19, cex = .5)
+"SO4pred"

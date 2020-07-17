@@ -15,7 +15,8 @@ d2 = sp::SpatialPointsDataFrame(coords = coords,
 	data = data, proj4string = crs)
 
 # USA Map
-path2 = '/slm/inst/raw data/wetSulfateDep/states_21basic/'
+path1 = '/media/jay/data/desktop_data/2019_packages/ZVHdata_package/ZVHdata'
+path2 = '/inst/raw data/wetSulfateDep/states_21basic/'
 ShapeFile = 'states'
 shape.path.filename <- paste0(path1, path2, ShapeFile,'.shp')
 states <- rgdal::readOGR(shape.path.filename)
@@ -33,9 +34,9 @@ d2 = sp::spTransform(d2, sp::CRS("+init=epsg:5070"))
 xyratio = (max(sp::coordinates(d2)[,1]) - min(sp::coordinates(d2)[,1]))/
 	(max(sp::coordinates(d2)[,2]) - min(sp::coordinates(d2)[,2]))
 # create systematic grid
-preds = pointSimSyst(nrow = 100, ncol = round(100*xyratio), 
-	lower.x.lim = min(sp::coordinates(d2)[,1])*1.05, upper.x.lim = max(sp::coordinates(d2)[,1])*1.05,
-	lower.y.lim = min(sp::coordinates(d2)[,2])*.80, upper.y.lim = max(sp::coordinates(d2)[,2])*1.05)
+preds = pointSimSyst(nrow = 50, ncol = round(50*xyratio), 
+	lower.x.lim = d2@bbox[1,1], upper.x.lim = d2@bbox[1,2],
+	lower.y.lim = d2@bbox[2,1], upper.y.lim = d2@bbox[2,2])
 # turn them into a SpatialPoints object
 coords = preds
 crs = sp::CRS("+init=epsg:5070")
@@ -51,7 +52,7 @@ preds_sub = preds[states,]
 USboundary = states
 SO4obs = d2
 SO4pred = preds_sub
-path3 = '/slm/data/'
+path3 = '/data/'
 save(USboundary, file = paste0(path1, path3, 'USboundary.rda'))
 save(SO4obs, file = paste0(path1, path3, 'SO4obs.rda'))
 save(SO4pred, file = paste0(path1, path3, 'SO4pred.rda'))
