@@ -15,6 +15,11 @@
   \item{y}{The y-coordinates of the plots in 2-D space}
   \item{x}{The x-coordinates of the plots in 2-D space}
 }}
+\source{
+These data were provided by Elizabeth Lenart of the Alaska Department of Fish and Game.  The data were used in the publication below.
+\cr \cr
+The R code that creates the data file from raw data can be found at \code{system.file("raw data/caribouForage/create_caribouDF.R",package = "ZVHdata")}
+}
 \usage{
 data(caribouDF)
 }
@@ -22,6 +27,7 @@ data(caribouDF)
 Data for a caribou forage experiment in Alaska, where 30 plots were placed in the field in a 5 x 6 grid and a two factor experiment, one with water added or not, and another with 3 different tarp treatments, were applied.
 }
 \examples{
+library(ZVHdata)
 data(caribouDF)
 names(caribouDF)
 summary(caribouDF)

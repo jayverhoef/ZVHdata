@@ -3,19 +3,28 @@
 \docType{data}
 \name{haulRoad}
 \alias{haulRoad}
-\title{A line file for the  haul road to Red Dog Mine, Alaska}
+\title{A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA}
 \format{A \code{SpatialLines} object with slots @lines, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.}
+\source{
+Shapefile provided by Peter Neitlich of the National Park Service. The file was developed for the publication below. 
+\cr \cr
+Imported to \code{R} with the \code{rgdal} package as a \code{SpatialLines} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/mossHeavyMetals/create_haulRoad.R",package = "ZVHdata")}
+}
 \usage{
 data(haulRoad)
 }
 \description{
-A line file for the  haul road to Red Dog Mine, Alaska, USA, with object type \code{SpatialLinesDataFrame} from \code{sp} package.
+A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA, with object type \code{SpatialLines} from \code{sp} package.
 }
 \examples{
 data(CAKR)
-data(haulRoad)
 library(sp)
+data(haulRoad)
 plot(CAKR)
 plot(haulRoad, add = TRUE, lwd = 2, col = 'red')
+}
+\references{
+Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
+(\href{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177936}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006.})
 }
 \keyword{datasets}

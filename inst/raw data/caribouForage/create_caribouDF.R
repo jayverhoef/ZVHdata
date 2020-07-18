@@ -1,4 +1,5 @@
-path1 = '/media/jay/data/desktop_data/2019_packages/slm_package'
+# path to directory where package is being developed
+path1 = '/media/jay/data/desktop_data/2019_packages/ZVHdata_package/ZVHdata/'
 path3 = '/slm/data/'
 
 # ---------- CREATE THE DATA FRAME 
@@ -35,5 +36,7 @@ bou[,"trt"] <- as.factor(bou[,"trt"])
 bou[,"y"] <- 7-bou[,"i"]
 bou[,"x"] <- bou[,"j"]
 caribouDF = bou
+# write object to disk as a data object for the package
+path3 = 'data/'
 save(caribouDF, file = paste0(path1, path3, 'caribouDF.rda'))
 

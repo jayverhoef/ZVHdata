@@ -6,8 +6,14 @@
 \title{Data on SO4 atmospheric deposition throughout the conterminous USA}
 \format{A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  The @data is a dataframe with 197 observations of a single variable.
 \describe{
-  \item{SO4}{Total wet deposition amounts of SO_4, in grams per square meter in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
+  \item{SO4}{Total wet deposition amounts of sulfate (SO4), in kilograms per hectare in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
 }}
+\source{
+Data were downloaded from the website \cr \cr
+(\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
+\cr \cr
+The code that creates the data file from the raw data can be found at \code{system.file("raw data/wetSulfateDep/create_SO4obs.R",package = "ZVHdata")}
+}
 \usage{
 data(SO4obs)
 }
@@ -15,15 +21,13 @@ data(SO4obs)
 Data on SO4 atmospheric deposition throughout the conterminous USA with object type \code{SpatialPointsDataFrame} from \code{sp} package.
 }
 \examples{
+library(ZVHdata)
+library(sp)
 data(SO4obs)
 names(SO4obs@data)
 summary(SO4obs)
-library(sp)
 data(USboundary)
 plot(USboundary)
 plot(SO4obs, add = TRUE, pch = 19)
-}
-\references{
-(\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
 }
 \keyword{datasets}

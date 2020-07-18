@@ -3,29 +3,42 @@
 #' A boundary file for Alaska, USA, of object type \code{SpatialPolygons} from \code{sp} package.
 #'
 #' @docType data
-#' @usage data(Alaska)
-#' @format A \code{SpatialPolygons} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Alber, EPSG:3338.
+#' @usage data(AKboundary)
+#' @format A \code{SpatialPolygons} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.
+#' @source 
+#' Shapefile downloaded from
+#' \cr \cr
+#' \href{https://www.arcgis.com/home/item.html?id=b07a9393ecbd430795a6f6218443dccc}{link to: Shapefile of 50 US States hosted by ArcGIS}. 
+# \cr \cr
+#' Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, subsetted to just the Alaska polygon, and then simplified to a \code{SpatialPolygons} object.  The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_AKboundary.R",package = "ZVHdata")}
 #' @examples
-#' data(Alaska)
-#' summary(Alaska)
+#' library(ZVHdata)
 #' library(sp)
-#' plot(Alaska)
-"Alaska"
+#' data(AKboundary)
+#' summary(AKboundary)
+#' library(sp)
+#' plot(AKboundary)
+"AKboundary"
 
 #' A boundary file for Cape Krusenstern National Moment, Alaska, USA
 #'
-#' A boundary file for Cape Krusenstern National Moment, Alaska, USA, with object type \code{SpatialPolygonDataFrame} from \code{sp} package.
+#' A boundary file for Cape Krusenstern National Moment, Alaska, USA, with object type \code{SpatialPolygons} from \code{sp} package.
 #'
 #' @docType data
-#' @usage data(CAKR)
-#' @format A \code{SpatialPolygonDataFrame} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.
-#' @source Obtained from \href{https://catalog.data.gov/dataset/national-parks}{data.gov}. The National Parks dataset September 30, 2019 is part of the U.S. Department of Transportation (USDOT)/Bureau of Transportation Statistics's (BTS's) National Transportation Atlas Database (NTAD). These are the National Park Service unit boundaries. These park boundaries signify legislative boundary definitions and local park names have been consolidated according to the legislation.  The Cape Krusenstern National Monument was subsetted from the all NPS boundaries by importing with the \code{rgdal} package as a \code{SpatialPolygonDataFrame} object from package \code{sp}.
+#' @usage data(CAKRboundary)
+#' @format A \code{SpatialPolygons} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.
+#' @source Data downloaded from
+#' \cr \cr
+#' \href{https://catalog.data.gov/dataset/national-parks}{data.gov}. 
+#' \cr \cr
+#' The National Parks dataset September 30, 2019 is part of the U.S. Department of Transportation (USDOT)/Bureau of Transportation Statistics's (BTS's) National Transportation Atlas Database (NTAD). These are the National Park Service unit boundaries. These park boundaries signify legislative boundary definitions and local park names have been consolidated according to the legislation.  The Cape Krusenstern National Monument was subsetted from the all NPS boundaries by importing with the \code{rgdal} package as a \code{SpatialPolygonDataFrame} object from package \code{sp}, and then simplified to a \code{SpatialPolygons} object. The R code that creates the data file from raw data can be found at \code{system.file("raw data/polyMaps/create_CAKRboundary.R",package = "ZVHdata")}
 #' @examples
-#' data(CAKR)
-#' summary(CAKR)
+#' library(ZVHdata)
 #' library(sp)
-#' plot(CAKR)
-"CAKR"
+#' data(CAKRboundary)
+#' summary(CAKRboundary)
+#' plot(CAKRboundary)
+"CAKRboundary"
 
 #' Data for a caribou forage experiment
 #'
@@ -44,37 +57,49 @@
 #'   \item{y}{The y-coordinates of the plots in 2-D space}
 #'   \item{x}{The x-coordinates of the plots in 2-D space}
 #' }
+#' @source These data were provided by Elizabeth Lenart of the Alaska Department of Fish and Game.  The data were used in the publication below.
+#' \cr \cr
+#' The R code that creates the data file from raw data can be found at \code{system.file("raw data/caribouForage/create_caribouDF.R",package = "ZVHdata")}
 #' @references Lenart, E.A., Bowyer, R.T., Ver Hoef, J.M. and Ruess, R.W. 2002. Climate Change and Caribou: Effects of Summer Weather on Forage. Canadian Journal of Zoology 80: 664-678.
 #' (\href{https://www.nrcresearchpress.com/doi/abs/10.1139/z02-034#.XvweB3VKjmF}{link to: Climate Change and Caribou: Effects of Summer Weather on Forage})
+
 #' @examples
+#' library(ZVHdata)
 #' data(caribouDF)
 #' names(caribouDF)
 #' summary(caribouDF)
 #' summary(lm(z ~ water + tarp + water:tarp, data = caribouDF))
 "caribouDF"
 
-#' A line file for the  haul road to Red Dog Mine, Alaska
+#' A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA
 #'
-#' A line file for the  haul road to Red Dog Mine, Alaska, USA, with object type \code{SpatialLinesDataFrame} from \code{sp} package.
+#' A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA, with object type \code{SpatialLines} from \code{sp} package.
 #'
 #' @docType data
 #' @usage data(haulRoad)
 #' @format A \code{SpatialLines} object with slots @lines, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.
+#' @source 
+#' Shapefile provided by Peter Neitlich of the National Park Service. The file was developed for the publication below. 
+#' \cr \cr
+#' Imported to \code{R} with the \code{rgdal} package as a \code{SpatialLines} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/mossHeavyMetals/create_haulRoad.R",package = "ZVHdata")}
+#' @references 
+#' Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
+#' (\href{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177936}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006.})
 #' @examples
 #' data(CAKR)
-#' data(haulRoad)
 #' library(sp)
+#' data(haulRoad)
 #' plot(CAKR)
 #' plot(haulRoad, add = TRUE, lwd = 2, col = 'red')
 "haulRoad"
 
-#' Data on heavy metals in lichens near a mining road in Alaska, USA
+#' Data on heavy metals in mosses near a mining road in Alaska, USA
 #'
 #' Data on heavy metal concentrations in mosses near a mining road in Alaska, USA with object type \code{SpatialPointsDataFrame} from \code{sp} package. Data on three metals: 1) Cd (cadmium), 2) Pb (lead), and 3) Zn (zinc) are included, along with covariates that have relationships to heavy metal concentrations.
 #'
 #' @docType data
-#' @usage data(rdobs)
-#' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 365 observations and 15 variables.
+#' @usage data(MOSSobs)
+#' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 365 observations and 11 variables.
 #' \describe{
 #'   \item{sample}{A factor variable with location identifier.  Some samples were duplicated in the field, and replicated in the lab, so there are 318 unique spatial locations}
 #'   \item{lon}{Longitude, in decimal degrees}
@@ -88,26 +113,33 @@
 #'   \item{Zn}{Zinc concentration in moss tissue, in mg/kg}
 #'   \item{year}{year of data collection, either 2001 or 2006}
 #' }
-#' @references Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001–2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
-#' (\href{https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0177936&type=printable}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001–2006.}) \cr Hasselbach, L., Ver Hoef, J.M., Ford, J., Neitlich, P., Berryman, S., Wolk B. and Bohle, T. 2005. Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska. Science of the Total Environment 348: 211–230.
+#' @source Data obtained from Peter Neitlich and Linda Hasselbach of the National Park Service.  Data were used in the publications listed below. 
+#' \cr \cr 
+#' The code that creates the data file from the raw data can be found at \code{system.file("raw data/MossHeavyMetals/create_MOSSobs.R",package = "ZVHdata")}
+#' @references 
+#' Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
+#' (\href{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177936}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006.}) 
+#' \cr \cr 
+#' Hasselbach, L., Ver Hoef, J.M., Ford, J., Neitlich, P., Berryman, S., Wolk B. and Bohle, T. 2005. Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska. Science of the Total Environment 348: 211-230.
 #' (\href{https://www.sciencedirect.com/science/article/pii/S0048969705000082}{link to: Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska.})
 #' @examples
-#' data(rdobs)
-#' names(rdobs@data)
-#' summary(rdobs)
+#' library(ZVHdata)
 #' library(sp)
+#' data(MOSSobs)
+#' names(MOSSobs@data)
+#' summary(MOSSobs)
 #' data(CAKR)
 #' plot(CAKR)
-#' plot(rdobs, add = TRUE, pch = 19)
-"rdobs"
+#' plot(MOSSobs, add = TRUE, pch = 19)
+"MOSSobs"
 
 #' Prediction sites for heavy metals in mosses near a mining road in Alaska, USA
 #'
 #' Prediction sites for heavy metal concentrations in mosses near a mining road in Alaska, USA with object type \code{SpatialPointsDataFrame} from \code{sp} package. Data on covariates used to model observed data are included with site location. 
 #'
 #' @docType data
-#' @usage data(rdpreds)
-#' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 2357 observations and 4 variables.
+#' @usage data(MOSSpreds)
+#' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 2357 observations and 5 variables.
 #' \describe{
 #'   \item{lon}{Longitude, in decimal degrees}
 #'   \item{lat}{Latitude, in decimal degrees}
@@ -115,20 +147,24 @@
 #'   \item{sideroad}{A factor variable with two levels: "N" for north of the haul road, and "S" for south of the haul road}
 #'   \item{strat}{A stratification variable for prediction sites, in distance classes from the haul road, where 1 is the closest, and 5 is the farthest, from the road}
 #' }
-#' @references Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001–2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
-#' (\href{https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0177936&type=printable}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001–2006.}) \cr Hasselbach, L., Ver Hoef, J.M., Ford, J., Neitlich, P., Berryman, S., Wolk B. and Bohle, T. 2005. Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska. Science of the Total Environment 348: 211–230.
-#' (\href{https://www.sciencedirect.com/science/article/pii/S0048969705000082}{link to: Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska.})
+#' @source This prediction grid was provided by Peter Neitlich and used in the publication given below. 
+#' \cr \cr
+#' Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPoints} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/MOSSHeavyMetals/create_MOSSpreds.R",package = "ZVHdata")}
+#' @references
+#' Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
+#' (\href{https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0177936&type=printable}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006.}) 
 #' @examples
-#' data(rdpreds)
-#' names(rdpreds@data)
-#' summary(rdpreds)
+#' library(ZVHdata)
 #' library(sp)
+#' data(MOSSpreds)
+#' names(MOSSpreds@data)
+#' summary(MOSSpreds)
 #' data(CAKR)
 #' plot(CAKR)
-#' plot(rdpreds[rdpreds$strat==5,], add = TRUE, pch = 19, cex = .5, col = 'green')
-#' plot(rdpreds[rdpreds$strat==2,], add = TRUE, pch = 19, cex = .2, col = 'blue')
-#' plot(rdpreds[rdpreds$strat==1,], add = TRUE, pch = 19, cex = .2, col = 'red')
-"rdpreds"
+#' plot(MOSSpreds[MOSSpreds$strat==5,], add = TRUE, pch = 19, cex = .5, col = 'green')
+#' plot(MOSSpreds[MOSSpreds$strat==2,], add = TRUE, pch = 19, cex = .2, col = 'blue')
+#' plot(MOSSpreds[MOSSpreds$strat==1,], add = TRUE, pch = 19, cex = .2, col = 'red')
+"MOSSpreds"
 
 #' A polygon file with data on harbor seal trends in southeast Alaska, USA.
 #'
@@ -146,13 +182,18 @@
 #'   \item{x}{x-coordinate of the polygon centroid.}
 #'   \item{y}{y-coordinate of the polygon centroid.}
 #' }
-#' @references Ver Hoef, J.M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M.-J. 2018. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Ecological Monographs, 88: 36–59. DOI: 10.1002/ecm.1283
-#' (\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1283}{link to: Spatial Autoregressive Models for Statistical Inference from Ecological Data.})
+#' @source These data were collected by the Polar Ecosystem Program of the Marine Mammal Laboratory of the Alaska Fisheries Science Center of NOAA Fisheries. The data were used in the publication given below.
+#' \cr \cr
+#' The data and code for the analyses were permanently archived as an \code{R} package at \href{https://zenodo.org/record/1035987#.XxJRzXVKikA}{link to: Zenodo.}  Here, we simplified the data into a single \code{SpatialPolygonsDataFrame}.
+#' @references
+#' Ver Hoef, J.M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M.-J. 2018. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Ecological Monographs, 88: 36-59. DOI: 10.1002/ecm.1283 \cr
+#' Link to:\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1283}{link to: Spatial Autoregressive Models for Statistical Inference from Ecological Data.}.
 #' @examples
+#' library(ZVHdata)
+#' library(sp)
 #' data(sealPolys)
 #' names(sealPolys)
 #' summary(sealPolys)
-#' library(sp)
 #' plot(sealPolys)
 #' boxplot(Estimate ~ as.factor(stockid), data = sealPolys@data)
 #' summary(lm(Estimate ~ as.factor(stockid), data = sealPolys@data))
@@ -166,15 +207,19 @@
 #' @usage data(SO4obs)
 #' @format A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  The @data is a dataframe with 197 observations of a single variable.
 #' \describe{
-#'   \item{SO4}{Total wet deposition amounts of SO_4, in grams per square meter in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
+#'   \item{SO4}{Total wet deposition amounts of sulfate (SO4), in kilograms per hectare in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
 #' }
-#' @references 
+#' @source 
+#' Data were downloaded from the website \cr \cr
 #' (\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
+#' \cr \cr
+#' The code that creates the data file from the raw data can be found at \code{system.file("raw data/wetSulfateDep/create_SO4obs.R",package = "ZVHdata")}
 #' @examples
+#' library(ZVHdata)
+#' library(sp)
 #' data(SO4obs)
 #' names(SO4obs@data)
 #' summary(SO4obs)
-#' library(sp)
 #' data(USboundary)
 #' plot(USboundary)
 #' plot(SO4obs, add = TRUE, pch = 19)
@@ -185,14 +230,41 @@
 #' Prediction sites for SO4 atmospheric deposition throughout the conterminous USA with object type \code{SpatialPoints} from \code{sp} package.
 #'
 #' @docType data
-#' @usage data(SO4pred)
-#' @format A \code{SpatialPoints} object with slots  @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070. There are 2721 locations in the @coords slot for prediction.
+#' @usage data(SO4preds)
+#' @format A \code{SpatialPoints} object with slots  @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070. There are 9558 locations in the @coords slot for prediction.
+#' @references 
+#' The code that creates the data file from a systematic grid within the conterminous US can be found at \code{system.file("raw data/wetSulfateDep/create_SO4preds.R",package = "ZVHdata")}
 #' @examples
-#' data(SO4pred)
-#' str(SO4pred)
-#' summary(SO4pred)
+#' library(ZVHdata)
 #' library(sp)
+#' data(SO4preds)
+#' str(SO4preds)
+#' summary(SO4preds)
 #' data(USboundary)
 #' plot(USboundary)
-#' plot(SO4pred, add = TRUE, pch = 19, cex = .5)
-"SO4pred"
+#' plot(SO4preds, add = TRUE, pch = 19, cex = .5)
+"SO4preds"
+
+#' A boundary file for conterminous United States
+#'
+#' A boundary file for conterminous United States, of object type \code{SpatialPolygonsDataFrame} from \code{sp} package.
+#'
+#' @docType data
+#' @usage data(USboundary)
+#' @format A \code{SpatialPolygonsDataFrame} object with slots @data, @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  There are 49 polygons with a single variable for the state name.
+#' \describe{
+#'   \item{STATE_NAME}{Names of the 48 contiguous states, plus District of Columbia.}
+#' }
+#' @source 
+#' Shapefile downloaded from
+#' \cr \cr 
+#' \href{https://www.arcgis.com/home/item.html?id=b07a9393ecbd430795a6f6218443dccc}{link to: Shapefile of 50 US States hosted by ArcGIS}). 
+#' \cr \cr
+#' Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, and then the contiguous US states were subsetted from that object that included other US jurisdictions. The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_USboundary.R",package = "ZVHdata")}
+#' @examples
+#' library(ZVHdata)
+#' library(sp)
+#' data(USboundary)
+#' summary(USboundary)
+#' plot(USboundary)
+"USboundary"

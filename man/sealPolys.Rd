@@ -14,6 +14,11 @@
   \item{x}{x-coordinate of the polygon centroid.}
   \item{y}{y-coordinate of the polygon centroid.}
 }}
+\source{
+These data were collected by the Polar Ecosystem Program of the Marine Mammal Laboratory of the Alaska Fisheries Science Center of NOAA Fisheries. The data were used in the publication given below.
+\cr \cr
+The data and code for the analyses were permanently archived as an \code{R} package at \href{https://zenodo.org/record/1035987#.XxJRzXVKikA}{link to: Zenodo.}  Here, we simplified the data into a single \code{SpatialPolygonsDataFrame}.
+}
 \usage{
 data(sealPolys)
 }
@@ -21,16 +26,17 @@ data(sealPolys)
 A polygon file for southeast Alaska, USA, of object type \code{SpatialPolygonsDataFrame} from \code{sp} package. The data.frame contains 306 polygons with estimated trends of harbor seals for each polygon, and 157 polygons with missing data.
 }
 \examples{
+library(ZVHdata)
+library(sp)
 data(sealPolys)
 names(sealPolys)
 summary(sealPolys)
-library(sp)
 plot(sealPolys)
 boxplot(Estimate ~ as.factor(stockid), data = sealPolys@data)
 summary(lm(Estimate ~ as.factor(stockid), data = sealPolys@data))
 }
 \references{
-Ver Hoef, J.M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M.-J. 2018. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Ecological Monographs, 88: 36–59. DOI: 10.1002/ecm.1283
-(\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1283}{link to: Spatial Autoregressive Models for Statistical Inference from Ecological Data.})
+Ver Hoef, J.M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M.-J. 2018. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Ecological Monographs, 88: 36-59. DOI: 10.1002/ecm.1283 \cr
+Link to:\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecm.1283}{link to: Spatial Autoregressive Models for Statistical Inference from Ecological Data.}.
 }
 \keyword{datasets}
