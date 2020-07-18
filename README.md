@@ -7,7 +7,7 @@
 # ZVHdata 
 ## An R data package in support of the book, "Spatial Linear Models for Environmental Data." 
 
-#### Dale. L. Zimmerman<sup>a</sup> and Jay M. Ver Hoef<sup>b</sup> and 
+#### Dale. L. Zimmerman<sup>a</sup> and Jay M. Ver Hoef<sup>b</sup> 
 
 #### <sup>a</sup>Department of Statistics and Actuarial Science, University of Iowa
 #### <sup>b</sup>Alaska Fisheries Science Center, NOAA Fisheries (NMFS) 
