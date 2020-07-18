@@ -9,7 +9,7 @@
   \item{SO4}{Total wet deposition amounts of sulfate (SO4), in kilograms per hectare in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
 }}
 \source{
-Data were downloaded from the website \cr \cr
+These data were used in the publication listed below. Data were downloaded from the website \cr \cr
 (\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
 \cr \cr
 The code that creates the data file from the raw data can be found at \code{system.file("raw data/wetSulfateDep/create_SO4obs.R",package = "ZVHdata")}
@@ -29,5 +29,9 @@ summary(SO4obs)
 data(USboundary)
 plot(USboundary)
 plot(SO4obs, add = TRUE, pch = 19)
+}
+\references{
+Zimmerman, D.L. (1994). Statistical analysis of spatial data. Pages 375-402 in \emph{ Statistical Methods for Physical Science}, J. Stanford and S. Vardeman (eds.), Academic Press: New York. \cr
+Link to:\href{https://www.elsevier.com/books/statistical-methods-for-physical-science/stanford/978-0-12-475973-2}{link to: Statistical analysis of spatial data}.
 }
 \keyword{datasets}

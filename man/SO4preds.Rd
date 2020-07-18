@@ -5,6 +5,9 @@
 \alias{SO4preds}
 \title{Prediction sites for SO4 atmospheric deposition throughout the conterminous USA}
 \format{A \code{SpatialPoints} object with slots  @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070. There are 9558 locations in the @coords slot for prediction.}
+\source{
+The code that creates the data file from a systematic grid within the conterminous US can be found at \code{system.file("raw data/wetSulfateDep/create_SO4preds.R",package = "ZVHdata")}
+}
 \usage{
 data(SO4preds)
 }
@@ -20,8 +23,5 @@ summary(SO4preds)
 data(USboundary)
 plot(USboundary)
 plot(SO4preds, add = TRUE, pch = 19, cex = .5)
-}
-\references{
-The code that creates the data file from a systematic grid within the conterminous US can be found at \code{system.file("raw data/wetSulfateDep/create_SO4preds.R",package = "ZVHdata")}
 }
 \keyword{datasets}
