@@ -68,14 +68,14 @@ help(SO4preds)
 ```
 in R. Use the examples in the help files to access the data. 
 
-### rdobs and rdpreds
+### MOSSobs and MOSSpreds
 
 This is a set point-referenced data with concentrations of 3 different heavy metals in mosses from Cape Krusenstern National Monument, where a road from the Reddog mine traverses the Monument.  Data were collected in two years, 2001 and 2006, and mitigation for dust from road improved between the years. Covariates include year, distance from road, and side of road.   The help files for these data sets can found by typing
 
 ```
 library(ZVHdata)
-help(rdobs)
-help(rdpreds)
+help(MOSSobs)
+help(MOSSpreds)
 ```
 in R. Use the examples in the help files to access the data. 
 
