@@ -4,19 +4,22 @@
 \name{CAKRboundary}
 \alias{CAKRboundary}
 \title{A boundary file for Cape Krusenstern National Moment, Alaska, USA}
-\format{A \code{SpatialPolygons} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.}
+\format{
+A \code{sf} object. The projection is in Alaska Albers, EPSG:3338.
+\describe{}
+}
 \source{
 Data downloaded from
 \cr \cr
 \href{https://catalog.data.gov/dataset/national-parks}{data.gov}. 
 \cr \cr
-The National Parks dataset September 30, 2019 is part of the U.S. Department of Transportation (USDOT)/Bureau of Transportation Statistics's (BTS's) National Transportation Atlas Database (NTAD). These are the National Park Service unit boundaries. These park boundaries signify legislative boundary definitions and local park names have been consolidated according to the legislation.  The Cape Krusenstern National Monument was subsetted from the all NPS boundaries by importing with the \code{rgdal} package as a \code{SpatialPolygonDataFrame} object from package \code{sp}, and then simplified to a \code{SpatialPolygons} object. The R code that creates the data file from raw data can be found at \code{system.file("raw data/polyMaps/create_CAKRboundary.R",package = "ZVHdata")}
+The National Parks dataset September 30, 2019 is part of the U.S. Department of Transportation (USDOT)/Bureau of Transportation Statistics's (BTS's) National Transportation Atlas Database (NTAD). These are the National Park Service unit boundaries. These park boundaries signify legislative boundary definitions and local park names have been consolidated according to the legislation.  The Cape Krusenstern National Monument was subsetted from the all NPS boundaries by importing with the \code{rgdal} package as a \code{SpatialPolygonDataFrame} object from package \code{sp}, and then simplified to a \code{SpatialPolygons} object. The R code that creates the data file from raw data can be found at \code{system.file("raw data/polyMaps/create_CAKRboundary.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(CAKRboundary)
 }
 \description{
-A boundary file for Cape Krusenstern National Moment, Alaska, USA, with object type \code{SpatialPolygons} from \code{sp} package.
+A boundary file for Cape Krusenstern National Moment, Alaska, USA, with object type \code{sf} from \code{sf} package.
 }
 \examples{
 library(ZVHdata)

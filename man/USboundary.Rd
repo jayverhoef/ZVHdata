@@ -4,16 +4,18 @@
 \name{USboundary}
 \alias{USboundary}
 \title{A boundary file for conterminous United States}
-\format{A \code{SpatialPolygonsDataFrame} object with slots @data, @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  There are 49 polygons with a single variable for the state name.
+\format{
+A \code{sf} object. The projection is in Conus (Continental US) Albers, EPSG:5070.  There are 49 polygons with a single variable for the state name.
 \describe{
   \item{STATE_NAME}{Names of the 48 contiguous states, plus District of Columbia.}
-}}
+}
+}
 \source{
 Shapefile downloaded from
 \cr \cr 
 \href{https://www.arcgis.com/home/item.html?id=b07a9393ecbd430795a6f6218443dccc}{link to: Shapefile of 50 US States hosted by ArcGIS}). 
 \cr \cr
-Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, and then the contiguous US states were subsetted from that object that included other US jurisdictions. The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_USboundary.R",package = "ZVHdata")}
+Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, and then the contiguous US states were subsetted from that object that included other US jurisdictions. The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_USboundary.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(USboundary)
@@ -23,7 +25,7 @@ A boundary file for conterminous United States, of object type \code{SpatialPoly
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(USboundary)
 summary(USboundary)
 plot(USboundary)

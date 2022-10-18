@@ -4,7 +4,8 @@
 \name{sealPolys}
 \alias{sealPolys}
 \title{A polygon file with data on harbor seal trends in southeast Alaska, USA.}
-\format{A \code{SpatialPolygonsDataFrame} object with slots @data, @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Alber, EPSG:3338.  The data.frame has 463 records and 7 variables:
+\format{
+A \code{sf} object. The projection is in Alaska Alber, EPSG:3338.  The data.frame has 463 records and 7 variables:
 \describe{
   \item{polyid}{A factor variable with 1307 levels for all harbor seal polygons in Alaska. Only 463 of these occur in southeast Alaska.  Each polygon has a unique polyid.}
   \item{stockid}{An integer from 8 to 12. There are 5 distinct genetic stocks for harbor seals in southeast Alaska, and each polygon is associated with one of the 5 stocks. Numbers 1 to 7, and 13, are stocks elsewhere in Alaska}
@@ -13,27 +14,28 @@
   \item{StdErr}{The estimated standard error of the estimated trend (on the log scale).  We ignore this for demonstration purposes.}
   \item{x}{x-coordinate of the polygon centroid.}
   \item{y}{y-coordinate of the polygon centroid.}
-}}
+}
+}
 \source{
 These data were collected by the Polar Ecosystem Program of the Marine Mammal Laboratory of the Alaska Fisheries Science Center of NOAA Fisheries. The data were used in the publication given below.
 \cr \cr
-The data and code for the analyses were permanently archived as an \code{R} package at \href{https://zenodo.org/record/1035987#.XxJRzXVKikA}{link to: Zenodo.}  Here, we simplified the data into a single \code{SpatialPolygonsDataFrame}.
+The data and code for the analyses were permanently archived as an \code{R} package at \href{https://zenodo.org/record/1035987#.XxJRzXVKikA}{link to: Zenodo.}  Here, we simplified the data into a single \code{SpatialPolygonsDataFrame}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(sealPolys)
 }
 \description{
-A polygon file for southeast Alaska, USA, of object type \code{SpatialPolygonsDataFrame} from \code{sp} package. The data.frame contains 306 polygons with estimated trends of harbor seals for each polygon, and 157 polygons with missing data.
+A polygon file for southeast Alaska, USA, of object type \code{sf}. The data.frame contains 306 polygons with estimated trends of harbor seals for each polygon, and 157 polygons with missing data.
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(sealPolys)
 names(sealPolys)
 summary(sealPolys)
 plot(sealPolys)
-boxplot(Estimate ~ as.factor(stockid), data = sealPolys@data)
-summary(lm(Estimate ~ as.factor(stockid), data = sealPolys@data))
+boxplot(Estimate ~ as.factor(stockid), data = sealPolys)
+summary(lm(Estimate ~ as.factor(stockid), data = sealPolys))
 }
 \references{
 Ver Hoef, J.M., Peterson, E. E., Hooten, M. B., Hanks, E. M., and Fortin, M.-J. 2018. Spatial Autoregressive Models for Statistical Inference from Ecological Data. Ecological Monographs, 88: 36-59. DOI: 10.1002/ecm.1283 \cr

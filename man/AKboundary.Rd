@@ -4,25 +4,27 @@
 \name{AKboundary}
 \alias{AKboundary}
 \title{A boundary file for Alaska, USA}
-\format{A \code{SpatialPolygons} object with slots @polygons, @plotOrder, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.}
+\format{
+A \code{sf} object. The projection is in Alaska Albers, EPSG:3338.
+\describe{}
+}
 \source{
 Shapefile downloaded from
 \cr \cr
 \href{https://www.arcgis.com/home/item.html?id=b07a9393ecbd430795a6f6218443dccc}{link to: Shapefile of 50 US States hosted by ArcGIS}. 
-Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, subsetted to just the Alaska polygon, and then simplified to a \code{SpatialPolygons} object.  The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_AKboundary.R",package = "ZVHdata")}
+Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPolygonsDataFrame} object from package \code{sp}, subsetted to just the Alaska polygon, and then simplified to a \code{SpatialPolygons} object.  The code that creates the data file from the raw data can be found at \code{system.file("raw data/polyMaps/create_AKboundary.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(AKboundary)
 }
 \description{
-A boundary file for Alaska, USA, of object type \code{SpatialPolygons} from \code{sp} package.
+A boundary file for Alaska, USA, of object type \code{sf} from \code{sf} package.
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(AKboundary)
 summary(AKboundary)
-library(sp)
 plot(AKboundary)
 }
 \keyword{datasets}

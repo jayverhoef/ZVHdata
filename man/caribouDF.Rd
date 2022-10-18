@@ -4,7 +4,8 @@
 \name{caribouDF}
 \alias{caribouDF}
 \title{Data for a caribou forage experiment}
-\format{A \code{data.frame} with 30 records and 7 variables:
+\format{
+A \code{data.frame} with 30 records and 7 variables:
 \describe{
   \item{i}{The ith row if envisioning the grid of plots as a matrix}
   \item{j}{The jth column if envisioning the grid of plots as a matrix}
@@ -14,7 +15,8 @@
   \item{z}{The response variable, which was the percent nitrogen in prostrate willows in the 3rd clipping of the second year of the study}
   \item{y}{The y-coordinates of the plots in 2-D space}
   \item{x}{The x-coordinates of the plots in 2-D space}
-}}
+}
+}
 \source{
 These data were provided by Elizabeth Lenart of the Alaska Department of Fish and Game.  The data were used in the publication below.
 \cr \cr

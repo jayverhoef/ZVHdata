@@ -4,8 +4,14 @@
 \alias{pointSimSyst}
 \title{Creates a systematic grid of points}
 \usage{
-pointSimSyst(nrow = 10, ncol = 10, lower.x.lim = -1,
-  upper.x.lim = 1, lower.y.lim = -1, upper.y.lim = 1)
+pointSimSyst(
+  nrow = 10,
+  ncol = 10,
+  lower.x.lim = -1,
+  upper.x.lim = 1,
+  lower.y.lim = -1,
+  upper.y.lim = 1
+)
 }
 \arguments{
 \item{nrow}{the number of rows in the systematic grid}

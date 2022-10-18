@@ -4,13 +4,15 @@
 \name{SO4obs}
 \alias{SO4obs}
 \title{Data on SO4 atmospheric deposition throughout the conterminous USA}
-\format{A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Conus (Continental US) Albers, EPSG:5070.  The @data is a dataframe with 197 observations of a single variable.
+\format{
+A \code{sf} object. The projection is in Conus (Continental US) Albers, EPSG:5070.  The dataframe has 197 observations of a single variable.
 \describe{
   \item{SO4}{Total wet deposition amounts of sulfate (SO4), in kilograms per hectare in 1987, at sites of the National Atmospheric Deposition Program/National Trends Network (NADP/NTN).}
-}}
+}
+}
 \source{
 These data were used in the publication listed below. Data were downloaded from the website \cr \cr
-(\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program})
+(\href{http://nadp.slh.wisc.edu/NTN/}{link to: National Atmospheric Deposition Program}). It was subsequently converted to \code{sf} using \code{st_as_sf} function. 
 \cr \cr
 The code that creates the data file from the raw data can be found at \code{system.file("raw data/wetSulfateDep/create_SO4obs.R",package = "ZVHdata")}
 }
@@ -18,17 +20,17 @@ The code that creates the data file from the raw data can be found at \code{syst
 data(SO4obs)
 }
 \description{
-Data on SO4 atmospheric deposition throughout the conterminous USA with object type \code{SpatialPointsDataFrame} from \code{sp} package.
+Data on SO4 atmospheric deposition throughout the conterminous USA with object type \code{sf} from \code{sf} package.
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(SO4obs)
-names(SO4obs@data)
+names(SO4obs)
 summary(SO4obs)
 data(USboundary)
-plot(USboundary)
-plot(SO4obs, add = TRUE, pch = 19)
+plot(st_geometry(USboundary))
+plot(st_geometry(SO4obs), add = TRUE, pch = 19, cex = .5)
 }
 \references{
 Zimmerman, D.L. (1994). Statistical analysis of spatial data. Pages 375-402 in \emph{ Statistical Methods for Physical Science}, J. Stanford and S. Vardeman (eds.), Academic Press: New York. \cr

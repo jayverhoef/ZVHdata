@@ -4,7 +4,8 @@
 \name{MOSSobs}
 \alias{MOSSobs}
 \title{Data on heavy metals in mosses near a mining road in Alaska, USA}
-\format{A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 365 observations and 11 variables.
+\format{
+A \code{sf} object. The projection is in Alaska Albers, EPSG:3338.  The dataframe has 365 observations and 11 variables.
 \describe{
   \item{sample}{A factor variable with location identifier.  Some samples were duplicated in the field, and replicated in the lab, so there are 318 unique spatial locations}
   \item{lon}{Longitude, in decimal degrees}
@@ -17,11 +18,12 @@
   \item{Pb}{Lead concentration in moss tissue, in mg/kg}
   \item{Zn}{Zinc concentration in moss tissue, in mg/kg}
   \item{year}{year of data collection, either 2001 or 2006}
-}}
+}
+}
 \source{
 Data obtained from Peter Neitlich and Linda Hasselbach of the National Park Service.  Data were used in the publications listed below. 
 \cr \cr 
-The code that creates the data file from the raw data can be found at \code{system.file("raw data/MossHeavyMetals/create_MOSSobs.R",package = "ZVHdata")}
+The code that creates the data file from the raw data can be found at \code{system.file("raw data/MossHeavyMetals/create_MOSSobs.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(MOSSobs)
@@ -31,18 +33,20 @@ Data on heavy metal concentrations in mosses near a mining road in Alaska, USA w
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(MOSSobs)
-names(MOSSobs@data)
+names(MOSSobs)
 summary(MOSSobs)
-data(CAKR)
-plot(CAKR)
-plot(MOSSobs, add = TRUE, pch = 19)
+data(CAKRboundary)
+plot(CAKRboundary)
+MOSSobs[,'lnPb'] = log(MOSSobs$Pb)
+plot(MOSSobs[,'lnPb'], add = TRUE, pch = 19)
 }
 \references{
 Neitlich, P.N., Ver Hoef, J.M., Berryman, S. D., Mines, A., Geiser, L.H., Hasselbach, L.M., and Shiel, A. E. 2017. Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006. PLOS ONE 12(5):e0177936 DOI:10.1371/journal.pone.0177936
 (\href{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0177936}{link to: Trends in Spatial Patterns of Heavy Metal Deposition on National Park Service Lands Along the Red Dog Mine Haul Road, Alaska, 2001-2006.}) 
 \cr \cr 
+\cr \cr
 Hasselbach, L., Ver Hoef, J.M., Ford, J., Neitlich, P., Berryman, S., Wolk B. and Bohle, T. 2005. Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska. Science of the Total Environment 348: 211-230.
 (\href{https://www.sciencedirect.com/science/article/pii/S0048969705000082}{link to: Spatial Patterns of Cadmium, Lead and Zinc Deposition on National Park Service Lands in the Vicinity of Red Dog Mine, Alaska.})
 }

@@ -4,23 +4,26 @@
 \name{haulRoad}
 \alias{haulRoad}
 \title{A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA}
-\format{A \code{SpatialLines} object with slots @lines, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.}
+\format{
+A \code{sf} object. The projection is in Alaska Albers, EPSG:3338.
+\describe{}
+}
 \source{
 Shapefile provided by Peter Neitlich of the National Park Service. The file was developed for the publication below. 
 \cr \cr
-Imported to \code{R} with the \code{rgdal} package as a \code{SpatialLines} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/mossHeavyMetals/create_haulRoad.R",package = "ZVHdata")}
+Imported to \code{R} with the \code{rgdal} package as a \code{SpatialLines} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/mossHeavyMetals/create_haulRoad.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(haulRoad)
 }
 \description{
-A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA, with object type \code{SpatialLines} from \code{sp} package.
+A line file for the  haul road through Cape Krusenstern National Monument, Alaska, USA, with object type \code{sf}.
 }
 \examples{
-data(CAKR)
-library(sp)
+data(CAKRboundary)
+library(sf)
 data(haulRoad)
-plot(CAKR)
+plot(CAKRboundary)
 plot(haulRoad, add = TRUE, lwd = 2, col = 'red')
 }
 \references{

@@ -4,18 +4,20 @@
 \name{MOSSpreds}
 \alias{MOSSpreds}
 \title{Prediction sites for heavy metals in mosses near a mining road in Alaska, USA}
-\format{A \code{SpatialPointsDataFrame} object with slots @data, @coords.nrs, @coords, @bbox, and @proj4string. The projection is in Alaska Albers, EPSG:3338.  The @data is a dataframe with 2357 observations and 5 variables.
+\format{
+A \code{sf} object. The projection is in Alaska Albers, EPSG:3338.  The dataframe has 2357 observations and 5 variables.
 \describe{
   \item{lon}{Longitude, in decimal degrees}
   \item{lat}{Latitude, in decimal degrees}
   \item{dist2road}{Distance to haul road, in meters}
   \item{sideroad}{A factor variable with two levels: "N" for north of the haul road, and "S" for south of the haul road}
   \item{strat}{A stratification variable for prediction sites, in distance classes from the haul road, where 1 is the closest, and 5 is the farthest, from the road}
-}}
+}
+}
 \source{
 This prediction grid was provided by Peter Neitlich and used in the publication given below. 
 \cr \cr
-Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPoints} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/MOSSHeavyMetals/create_MOSSpreds.R",package = "ZVHdata")}
+Imported to \code{R} with the \code{rgdal} package as a \code{SpatialPoints} object from package \code{sp}. The code that creates the data file from the raw data can be found at \code{system.file("raw data/MOSSHeavyMetals/create_MOSSpreds.R",package = "ZVHdata")}. It was subsequently converted to \code{sf} using \code{st_as_sf} function.
 }
 \usage{
 data(MOSSpreds)
@@ -25,12 +27,12 @@ Prediction sites for heavy metal concentrations in mosses near a mining road in 
 }
 \examples{
 library(ZVHdata)
-library(sp)
+library(sf)
 data(MOSSpreds)
-names(MOSSpreds@data)
+names(MOSSpreds)
 summary(MOSSpreds)
-data(CAKR)
-plot(CAKR)
+data(CAKRboundary)
+plot(CAKRboundary)
 plot(MOSSpreds[MOSSpreds$strat==5,], add = TRUE, pch = 19, cex = .5, col = 'green')
 plot(MOSSpreds[MOSSpreds$strat==2,], add = TRUE, pch = 19, cex = .2, col = 'blue')
 plot(MOSSpreds[MOSSpreds$strat==1,], add = TRUE, pch = 19, cex = .2, col = 'red')
